@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <title>Praxis Academy 01-04</title>
+    </head>
+    <body>
+        <div class="container px-lg-5">     
+<!-- Header -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <h1>Todo List</h1><br>
+                    </div>
+                </div>
+            </div>
+<!-- End Header -->
+
+<!-- Content -->
+    <!-- Form -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <form method="POST" action="" class="mt-3">
+                                {% csrf_token %}
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="h6">Tambah Task</label>
+                                <input type="text" name="name" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-1">Tambah</button>
+                        </form>
+                    </div>
+                </div>
+            </div>        
+    <!-- End Form -->
+
+    <!-- Table -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="table-responsive">
+                            <table class="table table-hover mt-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Task</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for d in data %}
+                                    <tr>
+                                        <th scope="row">{{d.id}}</th>
+                                        <td>{{d.name}}</td>
+                                        <td>{{d.status}}</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-success">Detail</button>
+                                            <button class="btn btn-sm btn-warning">Edit</button>
+                                            <button class="btn btn-sm btn-danger">Hapus</button>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!-- End Table -->
+
+
+
+        </div>
+<!-- Footer -->
+    
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
+</html>
