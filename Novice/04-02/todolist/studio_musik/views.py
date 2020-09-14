@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from . import models, forms
 
 
-
 def buat_label(req):
 	form_input = forms.StudiosForm()
 
