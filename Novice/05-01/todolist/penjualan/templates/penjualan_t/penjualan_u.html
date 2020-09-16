@@ -1,6 +1,10 @@
+{% load static from staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="icon" type="Image" href="{% static 'logop.png' %}">
+
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,16 +17,16 @@
 
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="/">
-                <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy" href='#'>
+                <img src="{% static 'logop.png' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy" href='#'>
                 Praxis Academy
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link" href="/penjualan">Penjualan<span class="sr-only">(current)</span></a>
+                        <a class="nav-link active" href="/penjualan">Penjualan<span class="sr-only">(current)</span></a>
                         <a class="nav-link" href="/biaya">Biaya</a>
-                        <a class="nav-link active" href="/hutang">Hutang</a>
+                        <a class="nav-link" href="/hutang">Hutang</a>
                     </div>
                 </div>
             </a>

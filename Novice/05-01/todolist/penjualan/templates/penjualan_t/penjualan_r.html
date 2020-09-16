@@ -1,6 +1,10 @@
+{% load static from staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="icon" type="Image" href="{% static 'logop.png' %}">
+
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,7 +16,7 @@
     <body>
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="/">
-                <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy" href='#'>
+                <img src="{% static 'logop.png' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy" href='#'>
                 Praxsi Academy
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

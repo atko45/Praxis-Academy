@@ -5,6 +5,23 @@ from . import models, forms
 def index(req):
 	return render(req, 'penjualan_t/index.html')
 
+def create(req):
+	form_input = forms.PenjualanForm()
+
+	if req.POST:
+		form_input = forms.PenjualanForm(req.POST)
+		if form_input.is_valid():
+			form_input.save()
+
+	penjualan = models.Penjualan.objects.all()
+
+	return render(req, 'penjualan_t/create.html',
+		{
+		'penjualan': penjualan,
+		'form': form_input,
+		})
+	# return render(req, 'penjualan_t/create.html')
+
 def c_penjualan(req):
 	form_input = forms.PenjualanForm()
 
