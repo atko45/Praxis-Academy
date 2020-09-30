@@ -7,7 +7,9 @@ class barangm(models.Model):
     def __str__(self):
         return self.barang
 
-
+class saldo_awal(object):
+    saldo_awal = models.DecimalField(default=0, max_digits=10, decimal_places=0)
+        
 
 class penjualan1m(models.Model):
     tanggal = models.DateField(auto_now_add=True)

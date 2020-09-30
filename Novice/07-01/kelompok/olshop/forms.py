@@ -2,6 +2,11 @@ from django.forms import ModelForm
 
 from . import models
 
+class saldoawalForm(ModelForm):
+    class Meta:
+        model = models.saldo_awal
+        exclude = ['saldoawal']
+
 class penjualan1f(ModelForm):
     class Meta:
         model = models.penjualan1m

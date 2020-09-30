@@ -692,6 +692,17 @@ def barangv(req):
         'form': form_input,
     })
 
+def saldoawal(req):
+    form_input = forms.saldoawalForm()
+    if req.POST:
+        form_input = forms.saldoawalForm(req.POST)
+        if form_input.is_valid():
+            form_input.save()
+        return redirect('/lr')
+    return render(req, 'keperluan/index16.html', {
+        'form': form_input,
+    })
+
 
 
 
@@ -895,7 +906,7 @@ def edit_saldoawal(req, id):
         return redirect('/lr')
 
     penjualan = models.penjualan1m.objects.filter(pk=id).first()
-    return render(req, 'keperluan/edit_saldo.html', {
+    return render(req, 'keperluan/index16.html', {
         'data': penjualan,
     })
 
