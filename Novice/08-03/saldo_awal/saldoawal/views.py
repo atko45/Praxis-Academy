@@ -20,31 +20,31 @@ def c_saldo_awal(req):
 		'data': saldo_awal,
 		})
 
-# Read Saldo awal
+# # Read Saldo awal
 
-def r_saldo_awal(req, id):
-	saldo_awal = models.SaldoAwal.objects.filter(pk=id).first()
+# def r_saldo_awal(req, id):
+# 	saldo_awal = models.SaldoAwal.objects.filter(pk=id).first()
 
-	return render(req, 'saldo/r_saldo_awal.html',
-		{
-		'data': saldo_awal,
-		})
+# 	return render(req, 'saldo/r_saldo_awal.html',
+# 		{
+# 		'data': saldo_awal,
+# 		})
 
-# Update Saldo Awal
+# # Update Saldo Awal
 
-def u_saldo_awal(req, id):
-	if req.POST:
-		models.SaldoAwal.objects.update(i_saldo=req.POST['i_saldo'],)
-		return redirect('/')
+# def u_saldo_awal(req, id):
+# 	if req.POST:
+# 		models.SaldoAwal.objects.update(i_saldo=req.POST['i_saldo'],)
+# 		return redirect('/')
 
-	saldo_awal = models.SaldoAwal.objects.filter(pk=id).first()
-	return render(req, 'saldo/u_saldo_awal.html',
-		{
-		'data': saldo_awal,
-		})
+# 	saldo_awal = models.SaldoAwal.objects.filter(pk=id).first()
+# 	return render(req, 'saldo/u_saldo_awal.html',
+# 		{
+# 		'data': saldo_awal,
+# 		})
 
-# Delete Saldo Awal
+# # Delete Saldo Awal
 
-def d_saldo_awal(req, id):
-	models.SaldoAwal.objects.filter(pk=id).delete()
-	return redirect('/')
+# def d_saldo_awal(req, id):
+# 	models.SaldoAwal.objects.filter(pk=id).delete()
+# 	return redirect('/')

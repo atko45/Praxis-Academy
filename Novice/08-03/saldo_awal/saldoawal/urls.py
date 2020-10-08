@@ -20,7 +20,7 @@ from . import views
 
 urlpatterns = [
     path('', views.c_saldo_awal),
-    path('<id>/', views.r_saldo_awal),
-    path('<id>/upgrade', views.u_saldo_awal),
-    path('<id>/delete', views.d_saldo_awal),
+    # path('<id>/', views.r_saldo_awal),
+    # path('<id>/upgrade', views.u_saldo_awal),
+    # path('<id>/delete', views.d_saldo_awal),
 ]
