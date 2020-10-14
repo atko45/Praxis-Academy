@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+		<title>Hello, notifications ! ! !</title>
+		<style>
+
+			.notification:hover {
+				background: #4C8BF5;
+			}
+
+			.notification .badge {
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				padding: 5px 10px;
+				border-radius: 50%;
+				background-color: red;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Navbar -->
+			<div class="container">
+				<nav class="navbar navbar-light bg-light">
+					<a href="#" class="navbar-brand">Notification</a>
+					<button type="button" class="btn btn-primary notification" style="background-color: #5555; color: white;" type="submit" data-toggle="modal" data-target="#exampleModal">
+						<span>Notif</span>
+						<span class="badge">3</span>
+					</button>
+				</nav>
+				<!-- Modal -->
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Pemberitahuan Jatuh Tempo</h5>
+								</div>
+								<div class="modal-header"><b>Okta</b>Rp 10.000</div>
+								<div class="modal-header"><b>Ryan</b>Rp 10.000</div>
+								<div class="modal-header"><b>Fawaid</b>Rp 10.000
+									<br>
+									asdasd {{data.tanggal_jatuh_tempo}}
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				<!-- End Modal -->
+			</div>
+		<!-- End Navbar -->
+
+		<div class="card container">     
+			<!-- Header -->
+			<div class="row" >
+				<div class=" card-header text-center col-sm" >
+					<h1 class="card-title" >Notifikasi | Create</h1><br>
+				</div>
+			</div>
+		<!-- End Header -->
+
+		<!-- Content -->
+			<!-- Form -->
+			<div class="card-body">
+				<div class="row">
+					<div class="col-sm">
+						<form method="POST" action="" class="row mt-3">
+							{% load crispy_forms_tags %}
+
+							{% csrf_token %}
+
+							{{ form|crispy }}
+							<button type="submit" class="btn btn-primary mt-5">Add</button>
+						</form>
+					</div>
+				</div>
+			</div>        
+			<!-- End Form -->
+
+			<!-- Table -->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm">
+						<div class="table-responsive">
+							<table class="table table-hover mt-3 text-center">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Nama</th>
+										<th scope="col">Hutang</th>
+										<th scope="col">Tanggal Pinjam</th>
+										<th scope="col">Tanggal Jatuh Tempo</th>
+										<th scope="col">Keterangan</th>
+										<th scope="col">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for d in data %}
+										<tr>
+											<th scope="row">{{forloop.counter}}</th>
+											<td>{{d.nama}}</td>
+											<td>Rp {{d.hutang}}</td>
+											<td>{{d.tanggal_pinjam}}</td>
+											<td>{{d.tanggal_jatuh_tempo}}</td>
+											<td>{{d.keterangan}}</td>
+											<td>
+											    <a class="btn btn-sm btn-success" href="/{{d.id}}/read">Detail</a>
+											    <a class="btn btn-sm btn-warning" href="/{{d.id}}/update">Edit</a>
+											    <a class="btn btn-sm btn-danger"  href="/{{d.id}}/delete">Delete</a>
+											</td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- End Content -->
+
+		<!-- Footer -->
+			<div class="card-footer text-muted text-center">By Atko45 Studio</div>
+		<!-- End Footer -->
+		</div>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	</body>
+</html>
