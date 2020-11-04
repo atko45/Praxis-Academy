@@ -23,7 +23,6 @@ def detail(req, id):	#Argument ke-2 harus sesuai dengan path yang ada di 'urls.p
 		{ 'data': task,
 		}) 
 
-
 #	Membuat 'Delete'
 
 def delete(req, id):

@@ -20,7 +20,7 @@ from . import views
 
 urlpatterns = [
 	path('', views.notif_c),
-	path('<id>/read', views.notif_r),
+	# path('<id>/read', views.notif_r),
 	path('<id>/update', views.notif_u),
 	path('<id>/delete', views.notif_d),
 ]

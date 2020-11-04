@@ -50,15 +50,17 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Nama</th>
                                         <th scope="col">Status</th>
+                                        <th scope="col">Keterangan</th>
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 {% for d in data %}
                                     <tr>
-                                        <th scope="row">{{forloop.counter}}</th>
+                                        <th scope="row">{{d.id}}</th>
                                         <td>{{d.name}}</td>
                                         <td>{{d.status}}</td>
+                                        <td>{{d.keterangan}}</td>
                                         <td>
                                             <a class="btn btn-sm btn-success" href="/{{d.id}}">Detail</a>
                                             <a class="btn btn-sm btn-warning" href="/{{d.id}}/edit">Edit</a>

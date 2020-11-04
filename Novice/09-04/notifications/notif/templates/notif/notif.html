@@ -33,7 +33,7 @@
 					<a href="#" class="navbar-brand">Notification</a>
 					<button type="button" class="btn btn-primary notification" style="background-color: #5555; color: white;" type="submit" data-toggle="modal" data-target="#exampleModal">
 						<span>Notif</span>
-						{% for d in data %}
+						{% for n in due %}
 						<span class="badge">{{forloop.counter}}</span>
 						{% endfor %}
 					</button>
@@ -45,11 +45,11 @@
 								<div class="modal-header">
 									<h5 class="modal-title" id="exampleModalLabel">Pemberitahuan Jatuh Tempo</h5>
 								</div>
-								{% for d in data %}
+								{% for n in due %}
 									<div class="modal-header">
-										<b>{{d.nama}}</b>Rp {{d.hutang}}
+										<b>{{n.nama}}</b>Rp {{n.hutang}}
 										<br>
-										<span style="color: #E21923;">{{d.tanggal_jatuh_tempo}}</span>
+										<span style="color: #E21923;">{{n.tanggal_jatuh_tempo}}</span>
 									</div>
 								{% endfor %}		
 								<div class="modal-footer">

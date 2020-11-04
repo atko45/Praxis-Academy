@@ -1,23 +1,20 @@
 from django.shortcuts import render, redirect
 from . import models, forms
+from datetime import timedelta
+from django.utils.timezone import now
 
 
 # READ Jatuh Tempo by 3 hari se
 
-def notif(req):
-	if req.POST:
-		jatuh_tempo = models.DataNotif.objects.all()
-		if 	jatuh_tempo:
-			models.DataNotif.objects.filter(
-				due_date__gte=datetime.date(2005, 1, 1),
-				pick_date_lte=datetime.date(2005, 3, 31)
-				)
-		jatuh_tempo = models.DataNotif.objects.all()
-		return render(req, 'notif/notif.html', 
-			{
-			'dataa': jatuh_tempo
-			})
-
+def notif_r(req):
+	today = now().replace(hour=0, minute=0, second=0, microsecond=0)
+	tomorrow = today + timedelta(days=10)
+	
+	notif = models.DataNotif.objects.filter(
+		tanggal_jatuh_tempo__gte=today,
+		tanggal_jatuh_tempo__lt=tomorrow,
+		)
+	return notif
 
 # CREATE Notifikasi Data
 
@@ -31,20 +28,32 @@ def notif_c(req):
 
 	notif = models.DataNotif.objects.all()
 
+	due = notif_r(req)
+
 	return render(req, 'notif/notif.html',
 		{
 		'data': notif,
+		'due': due,
 		'form': form_input,
 		})
 
 # READ Notifikasi Data by id
 
-def notif_r(req, id):
-	notif = models.DataNotif.objects.filter(pk=id).first()
-	return render(req, 'notif/notif_r.html',
-		{
-		'data': notif,
-		})
+# def notif_r(req):
+# 	due_date = models.DataNotif.objects.filter(tanggal_jatuh_tempo=req.POST['tanggal_jatuh_tempo'])
+# 	muncul_notif = due_date - timedelta(days=10)
+	
+# 	notif = models.DataNotif.objects.filter(tanggal_jatuh_tempo__lte=muncul_notif)
+# 	return render(req, 'notif/notif.html',
+# 		{
+# 		'notif': notif,
+# 		})
+
+
+# Jatuh tempo harus masuk datanya.
+# jatuh tempo hari ini harus muncul paling atas dan paling bawah adalah jatuh tempo terlama
+# Integrasi dengan WhatsApp dalam mengingatkan notifikasi
+# Analisis Kesehatan Keuangan
 
 # UPDATE Notifikasi Data by id
 

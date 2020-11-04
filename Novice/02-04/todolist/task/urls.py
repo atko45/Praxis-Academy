@@ -1,3 +1,4 @@
+
 """todolist URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
 from django.shortcuts import render
 
 from . import views
@@ -24,5 +26,4 @@ urlpatterns = [
     path('<id>/', views.detail),
     path('<id>/delete', views.delete),
     path('<id>/edit', views.edit),
-
 ]
